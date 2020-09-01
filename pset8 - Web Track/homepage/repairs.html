@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Naresh's Webpage</title>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <style>
+            body
+            {
+            background-color: Azure;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light border">
+            <a class="navbar-brand" href="/"><span class="title">Naresh Rasakulasuriar</span></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+
+                <ul class="navbar-nav mr-auto mt-2">
+                    <li class="nav-item"><a class="nav-link" href='https://2ef0c7f1-56d1-494e-8ff7-d93f15f5d084-ide.cs50.xyz:8080/index.html'>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href='https://2ef0c7f1-56d1-494e-8ff7-d93f15f5d084-ide.cs50.xyz:8080/projects.html'>Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href='https://2ef0c7f1-56d1-494e-8ff7-d93f15f5d084-ide.cs50.xyz:8080/tutoring&advice.html'>Tutoring & Advice</a></li>
+                    <li class="nav-item"><a class="nav-link" href='https://2ef0c7f1-56d1-494e-8ff7-d93f15f5d084-ide.cs50.xyz:8080/repairs.html'>Repairs</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <div class='introduction'>
+            <img src="repairs.jpeg" alt="Picture of the inside of a MacBook Pro" align='right' style="margin: 20px 15px">
+            <h2 class="text-dark">
+                Electronics Repair
+            </h2>
+            <p>
+                <b class="text-secondary">
+                    Since 2012, I have run an electronics repair company based in North West London and Cambridge, NR Repairs, where we have repair a vast array of Apple electronics.
+                </b>
+            </p>
+            <p>
+                <b class="text-secondary">
+                    What started out as a hobby has now become a passion and we're delighted to share it with you. I offer quality repairs at affordable prices.
+                    My intense passion for fixing what’s broken has brought us to the forefront of the repair industry, and my impeccable results have kept us there.
+                    We also care about how we can help the environment. By choosing to repair instead of replace your device you are doing your part in saving our planet.
+                    We are committed to aiding you in both reducing your carbon footprint and the price of owning Apple products.
+                </b>
+            </p>
+        </div>
+        <hr>
+
+        <div class="container">
+            <form action="action_page.php" onsubmit="myFunction()">
+
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                <label for="email">Email</label>
+                <input type="text" id="email" name="user email" placeholder="Your email address..">
+
+                <label for="tarea">Device To Be Repaired</label>
+                <select id="tarea" name="repair area">
+                     <option value="iPhone">iPhone</option>
+                     <option value="MacBook">MacBook</option>
+                     <option value="other">Other (specify in specific details box below)</option>
+                </select>
+
+                <label for="defaultCheck1">Repairs Required:</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check1">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Screen/Display
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check2">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Battery Replacement
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check3">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Cleaning Service
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check4">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Other (specify in specific details box below)
+                  </label>
+                </div>
+
+                <div style='margin-top: 20px;'>
+                    <label for="subject">Please include specifc details of your request below: </label>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                </div>
+
+                <input type="submit" value="Submit">
+
+            </form>
+
+            <script>
+                function myFunction() {
+                    alert("Thank you for submitting a repair request! I will endeveour to respond within 24 hours.");
+                }
+            </script>
+        </div>
+
+    </body>
+</html>

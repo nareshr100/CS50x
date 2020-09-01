@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Naresh's Webpage</title>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
+        <style>
+            body
+            {
+            background-color: Azure;
+            }
+        </style>
+        <script>
+            let tarea = document.querySelector('#tarea').value
+
+            if (tarea == "uniadmission")
+            {
+                alert("1234");
+                document.querySelector('#s1').value = 'AdmissionsTest'
+                document.getElementById("s1").innerHTML = 'Admissions Tests'
+                document.querySelector('#s2').value = 'InterviewPreparation'
+                document.getElementById("s2").innerHTML = 'Interview Preparation'
+                document.querySelector('#s3').value = 'PersonalStatement'
+                document.getElementById("s3").innerHTML = 'Personal Statement Reviews'
+            }
+        </script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-light bg-light border">
+            <a class="navbar-brand" href="/"><span class="title">Naresh Rasakulasuriar</span></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+
+                <ul class="navbar-nav mr-auto mt-2">
+                    <li class="nav-item"><a class="nav-link" href='https://2ef0c7f1-56d1-494e-8ff7-d93f15f5d084-ide.cs50.xyz:8080/index.html'>Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href='https://2ef0c7f1-56d1-494e-8ff7-d93f15f5d084-ide.cs50.xyz:8080/projects.html'>Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href='https://2ef0c7f1-56d1-494e-8ff7-d93f15f5d084-ide.cs50.xyz:8080/tutoring&advice.html'>Tutoring & Advice</a></li>
+                    <li class="nav-item"><a class="nav-link" href='https://2ef0c7f1-56d1-494e-8ff7-d93f15f5d084-ide.cs50.xyz:8080/repairs.html'>Repairs</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <div class='introduction'>
+            <img src="tutoring.jpg" alt="Blackboard with mathematics" align='right' style="margin: 20px 15px">
+            <h2 class="text-dark">
+                Tutoring Services & University Admissions Advice
+            </h2>
+
+            <b class="text-secondary">
+                Are you looking to develop your academic ability and boost your University Admissions profile? I can help!
+            </b>
+
+
+            <b class="text-secondary">
+                I offer personalised tutoring for GCSE and A-Level Mathematics and Physics alongside comprehensive admissions advice,
+                including personal statement reviews, mock innterviews and admissions test preparations. I specifically cover the
+                ENSAA and ENGAA at Cambridge as well as the MAT and PAT at Oxford.
+            </b>
+
+
+            <b class="text-secondary">
+                If you are interested in my services or would like to enquire about rates, please fill out the contact form below and I will respond to each individual request
+                and we can work together to develop a plan to best aid you in reaching your goals!
+            </b>
+
+        </div>
+        <hr>
+        <div class="container">
+            <form action="action_page.php" onsubmit="myFunction()">
+
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+                <label for="email">Email</label>
+                <input type="text" id="email" name="user email" placeholder="Your email address..">
+
+                <label for="tarea">Tutoring Level Required</label>
+                <select id="tarea" name="tutoring area">
+                     <option value="gcse">GCSE</option>
+                     <option value="a-level">A-Level</option>
+                     <option value="uniadmission">University Admissions</option>
+                </select>
+
+                <label for="defaultCheck1">Areas of tutoring:</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check1">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Physics
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check2">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Mathematics
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check3">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Further Mathematics
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check4">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Oxbridge Admissions Test Preparation
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check5">
+                  <label class="form-check-label" for="defaultCheck1">
+                    University Interview Preparation
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="Check6">
+                  <label class="form-check-label" for="defaultCheck1">
+                    Personal Statement Reviews
+                  </label>
+                </div>
+
+                <div style='margin-top: 20px;'>
+                    <label for="subject">Please include specifc details of your request below: </label>
+                    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+                </div>
+
+                <input type="submit" value="Submit">
+
+            </form>
+
+            <script>
+                function myFunction() {
+                    alert("Thank you for submitting a tutoring request! I will endeveour to respond within 24 hours.");
+                }
+            </script>
+        </div>
+    </body>
+</html>

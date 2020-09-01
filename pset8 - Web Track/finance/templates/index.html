@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class="table table-hover table-striped">
+        <thead class="thead thead-dark">
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Buy</th>
+                <th>Sell</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <td colspan="6"></td>
+                <td>{{ total }}</td>
+            </tr>
+        </tfoot>
+
+        <tbody>
+
+            {% for asset in assets %}
+                <tr>
+
+                        <td scope = 'row' name = 'stock'>{{ asset.stock }}</td>
+                        <td>{{ asset.name }}</td>
+                        <td>{{ asset.volume }}</td>
+                        <td>{{ asset.price }}</td>
+                        <td>
+                            <form action="/buy" method="post">
+                                <input type="hidden" name="symbol" value="{{ asset.stock }}">
+                                <input autocomplete="off" class="form-control col-lg-3" min="0" name="shares" placeholder="#" type="number">
+                                <a href=# id=buy name=buy><button class='btn btn-success'>Buy</button></a>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/sell" method="post">
+                                <input type="hidden" name="symbol" value="{{ asset.stock }}">
+                                <input autocomplete="off" class="form-control col-lg-3" min="0" name="shares" placeholder="#" type="number">
+                                <a href=# id=sell name=sell><button class='btn btn-warning'>Sell</button></a>
+                            </form>
+                        </td>
+                        <td>{{ asset.share_total }}</td>
+                </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+        <tr>
+            <td>CASH</td>
+            <td colspan="5"></td>
+            <td>{{ cash }}</td>
+        </tr>
+
+    </table>
+
+{% endblock %}
