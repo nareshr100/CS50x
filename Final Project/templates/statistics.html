@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    statistics
+{% endblock %}
+
+{% block main %}
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <h1 style="color: rgb(9, 136, 9);">Your Statistics and Data</h1>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <h4>You have {{ library_len }} songs in saved in your library!</h4>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <b style="font-size: large;">To use this feature, please press 'Load All Songs".</b>
+            <p>(This will take less than one minute)</p>
+        </div>
+        <div class="col-sm">
+            <form action="/statistics" method="post">
+                <button class="btn btn-success btn-lg" name='load' value=1 type="submit">Load All Songs</button>
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <b style="font-size: large;">Next, to get an audio analysis of your entire song library press "Analyse"!</b>
+            <p>(SpotiTracker will take up to 10 minutes to analyse all saved songs on your spotify profile)</p>
+        </div>
+        <div class="col-sm">
+            <form action="/statistics" method="post">
+                <button class="btn btn-success btn-lg" name='analyse' value=1 type="submit">Analyse</button>
+            </form>
+        </div>
+    </div>
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <h4 style="color: rgb(9, 136, 9);">Audio Analysis of your Saved Tracks </h4>
+        </div>
+    </div>
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <td style="width:50">
+                    <h6 style="text-align: center;">Audio Feature</h6>
+                </td>
+                <td style="width:50">
+                    <h6 style="text-align: center;">Value</h6>
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="width:50%">
+                    {% for feature in features_dict.items() %}
+                        <div>
+                            {% if feature[0] != 'Key' and feature[0] != 'Mode' %}
+                                <div class="container" style="text-align: center;">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            {{ feature[0] }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </td>
+                <td style="width:50%">
+                    {% for feature in features_dict.items() %}
+                        <div>
+                            {% if feature[0] != 'Key' and feature[0] != 'Mode' %}
+                                <div class="container" style="text-align: center;">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            {{ feature[1] }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <h4 style="color: rgb(9, 136, 9);">Get Audio Analysis of Specific Track </h4>
+            <b>To use this feature, please enter a Spotify URI for a track and click 'Go'.</b>
+            <p>
+                To find a track's URI, go to the Spotify profile of the track and then click the three
+                small buttons, followed by the 'share' dropdown. The bottom option on the 'share' dropdown will be
+                'Copy Spotify URI'. This is a a unique identifier that will allow us to analyse this track!
+            </p>
+            <form action="/statistics" method="post">
+                <input type='text'class='form-control' style="width:50%; text-align: center;" name='track_uri' placeholder='Enter Track URI'>
+                <button class="btn btn-success btn-lg" name='go' value=1 type="submit">Go</button>
+            </form>
+            <br>
+            {% if features_dict_single_track != {} %}
+                <h5 style="text-align: center;">Track Name:     {{ track_name }}</h5>
+                <table style="width:100%">
+                    <thead>
+                        <tr>
+                            <td style="width:50">
+                                <h6 style="text-align: center;">Audio Feature</h6>
+                            </td>
+                            <td style="width:50">
+                                <h6 style="text-align: center;">Value</h6>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width:50%">
+                                {% for feature in features_dict_single_track.items() %}
+                                    <div>
+                                        {% if feature[0] != 'Key' and feature[0] != 'Mode' %}
+                                            <div class="container" style="text-align: center;">
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        {{ feature[0] }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </td>
+                            <td style="width:50%">
+                                {% for feature in features_dict_single_track.items() %}
+                                    <div>
+                                        {% if feature[0] != 'Key' and feature[0] != 'Mode' %}
+                                            <div class="container" style="text-align: center;">
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        {{ feature[1] }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

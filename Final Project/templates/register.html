@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <div style="text-align:center">
+        <form action="/register" method="post">
+                <table class="center">
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <b>
+                                    Enter your Spotify Username:
+                                </b>
+                            </div>
+                        </td>
+                        <td style="width:10%"></td>
+                        <td>
+                            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <b>
+                                    Enter your email address:
+                                </b>
+                            </div>
+                        </td>
+                        <td style="width:10%"></td>
+                        <td>
+                            <input autocomplete="off" autofocus class="form-control" name="email" placeholder="Email" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <b>
+                                    Enter a Password for your SpotiTrack Account:
+                                </b>
+                            </div>
+                        </td>
+                        <td style="width:10%"></td>
+                        <td>
+                            <input class="form-control" name="password" placeholder="Password" type="password">
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <b>
+                                    Confirm your Password:
+                                </b>
+                            </div>
+                        </td>
+                        <td style="width:10%"></td>
+                        <td>
+                            <input class="form-control" name="confirm password" placeholder="Confirm Password" type="password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td>
+                            <small style="text-align: center;"> Please ensure your password is at least 6 characters and includes a number</small>
+                        </td>
+                    </tr>
+                    
+                </table>
+            <br>
+            <div style="text-align: center;">
+                <button class="btn btn-success" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

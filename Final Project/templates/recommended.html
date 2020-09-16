@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    recommended
+{% endblock %}
+
+{% block main %}
+<div class="row" style="text-align: center;">
+    <div class="col-sm">
+        <h1 style="color: rgb(9, 136, 9);">Recommended Tracks:</h1>
+        <b>To use this feature, please enter a Spotify URI for either an artist or track and click 'Go'.</b>
+        <p>
+            To find an artist or track's URI, click on the Spotify profile of the artist/track and then click the three
+            small buttons, followed by the 'share' dropdown. The bottom option on the 'share' dropdown will be
+            'Copy Spotify URI'. This is a a unique identifier that will allow us to reccomend you songs based on this track or artist!
+        </p>
+        <form action="/recommended" method="post">
+            <input type='text'class='form-control' style="width:50%; text-align: center;" name='seed' placeholder='Enter Artist or Track Seed'>
+            <button class="btn btn-success" type="submit">Go</button>
+        </form>
+        <br>
+        <h6>  
+        {% for track in rec_dict.items() %}
+
+        <p> {{ track[1] }} </p>
+
+        {% endfor %}
+        </h6>
+    </div>
+</div>
+
+{% endblock %}

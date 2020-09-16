@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block head %}
+    <script type="text/javascript">
+        window.onload = setupRefresh;
+        function setupRefresh()
+        {
+            setInterval("refreshBlock();", 1000);
+        }
+
+        function refreshBlock()
+        {
+            $("#block").load(location.href+" #block>*","");
+        }
+    </script>
+
+{% endblock %}
+
+{% block main %}
+    {% if playback != None %}
+    <div class="container" style="text-align: center;" id='block'>
+        <div class="row">
+            <div class="col-sm">
+                {% if position == 0 %}
+                    <form action="/index" method="post">
+                        <input type="submit" class="btn btn-success" name='skip' value="Previous Track" disabled>
+                    </form>
+                
+                {% else %}
+                    <form action="/index" method="post">
+                        <input type="submit" class="btn btn-success" name='skip' value="Previous Track">
+                    </form>
+
+                {% endif %}
+            </div>
+            <div class="col-sm">
+                <h4 style="color: rgb(9, 136, 9);">Currently Playing:</h5>
+                <br>
+                <h5>{{ playback.track }}</h5>
+            </div>
+            <div class="col-sm">
+                <h4 style="color: rgb(9, 136, 9);">By:</h4>
+                <br>
+                <h6>  
+                {% for artist in playback.artists %}
+
+                <p> {{ artist }} </p>
+
+                {% endfor %}
+                </h6>
+            </div>
+            <div class="col-sm">
+                <form action="/index" method="post">
+                    <input type="submit" class="btn btn-success" name='skip' value="Next Track">
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+<br>
+
+    
+<table style="width:100%">
+    <thead>
+        <tr>
+            <th colspan="2">
+                <div style='text-align: center;'>
+                    <form action="/index" method="post">
+                        <select class="form-control" name="time-range">
+                            <option name="select" disabled selected>Time Range...</option>
+                            <option name="short_term">Short Term</option>
+                            <option name="medium_term">Medium Term</option>
+                            <option name="long_term">Long Term</option>
+                        </select>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </form>  
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <th colspan="2">
+                <p>  </p>
+            </th>
+        </tr>
+        <tr>
+            <th style="width:50%">
+                <h3 style="text-align: center;"> Your Top Tracks - {{ time_range }}</h3>
+                
+            </th>
+            <th style="width:50%">
+                <h3 style="text-align: center;"> Your Top Artists - {{ time_range }}</h3>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width:50%">
+                {% for track in top_tracks.items() %}
+                <div class="container" style="text-align: center;">
+                    <div class="row">
+                      <div class="col-sm">
+                        {{ track[1] }}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+            </td>
+            <td style="width:50%">
+                {% for artist in top_artists.items() %}
+                <div class="container" style="text-align: center;">
+                    <div class="row">
+                      <div class="col-sm">
+                        {{ artist[1] }}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

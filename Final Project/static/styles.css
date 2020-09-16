@@ -1,0 +1,29 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: 42px;
+}
+
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+nav .navbar-nav .nav-link
+{
+    font-size: 22px;
+}
+
+.link2
+{
+    font-size: 18px;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}

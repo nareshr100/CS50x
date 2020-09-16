@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    emails
+{% endblock %}
+
+{% block main %}
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <h1 style="color: rgb(9, 136, 9);">Your Email Alerts</h1>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <b style="font-size: 22px;">Turn on email notifications:</b>
+            <br>
+            <p>(This will email you with updates, such as when of your favourite artists releases new music!
+                You can change the events which trigger an email in the notification settings below. PLEASE LOAD SONGS 
+                FROM THE STATISTICS TAB FOR THIS FEATURE TO WORK)</p>
+        </div>
+        <div class="col-sm">
+            <form action="/emails" method="post">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" name='toggle1' class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1">Toggle this switch</label>
+                </div>
+                <input type="submit" class="btn btn-success" name='notifs' value="Save">
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <b style="font-size: 22px; color: rgb(9, 136, 9);">Notification Settings</b>
+        </div>
+    </div>
+    <br>
+    <div class="row" style="text-align: center;">
+        <div class="col-sm">
+            <b>Notify when any of the artists you have a saved song from releases new music:</b>
+        </div>
+        <div class="col-sm">
+            <form action="/emails" method="post">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1">Toggle this switch element</label>
+                </div>
+                <input type="submit" class="btn btn-success" name='notifs' value="Save">
+            </form>
+        </div>
+    </div>
+    
+{% endblock %}
